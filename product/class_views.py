@@ -45,7 +45,7 @@ class ProductUpdateView(UpdateView):
     model = Product
     template_name = 'products/update_product.html'
     form_class = UpdateProductForm
-    context_object_name = 'id'
+    pk_url_kwarg = 'id'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
