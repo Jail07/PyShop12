@@ -20,7 +20,7 @@ class Product(models.Model):
         ('out of stock', 'Нет в наличии'),
         ('awaiting', 'Ожидается')
     )
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=255)
     status = models.CharField(choices=STATUS_CHOICES,
                               max_length=20)
     price = models.DecimalField(max_digits=10, decimal_places=3)

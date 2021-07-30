@@ -41,11 +41,12 @@ INSTALLED_APPS = [
 
     # libs
     'crispy_forms',
-
+    'cart',
 
     # my apps
     'product',
     'account',
+
 
 
 ]
@@ -75,12 +76,15 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processor.cart_total_amount',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'shop.wsgi.application'
+CART_SESSION_ID = 'cart'
+
 
 
 # Database
@@ -146,4 +150,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/account/login/'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = config("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
+EMAIL_USE_TLS = True
+
+
+
 
